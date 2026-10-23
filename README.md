@@ -75,9 +75,11 @@ After extracting the source and target features, fit the source-trained readout:
 
 ## Citation
 
+```bibtex
 @article{shor2026mri,
   title={MRI Reconstruction Risk Estimation from Inference Dynamics},
   author={Shor, Tamir and Bronstein, Alex},
   journal={arXiv preprint arXiv:2610.26558},
   year={2026}
 }
+```
