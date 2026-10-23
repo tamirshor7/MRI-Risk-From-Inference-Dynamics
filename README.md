@@ -2,6 +2,8 @@
 
 **Tamir Shor, Alex Bronstein**
 
+![Method overview](images/method.png)
+
 This repository contains the official implementation of the **WACV 2027** paper [MRI Reconstruction Risk Estimation from Inference Dynamics](https://arxiv.org/abs/2610.26558).
 
 Iterative MRI reconstruction models produce a sequence of intermediate estimates before returning the final image. We use this sequence to estimate reconstruction error, without requiring a reference image at inference time. The method extracts 16 trajectory features and learns a ridge regression predictor on source-domain data, while keeping the reconstruction model frozen.
