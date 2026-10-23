@@ -1,0 +1,26 @@
+name: mri-inference-risk
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - setuptools>=68
+  - wheel
+  - pip:
+      - numpy==2.2.6
+      - scipy==1.14.1
+      - pandas==2.2.3
+      - scikit-learn==1.9.0
+      - h5py==3.12.1
+      - torch==2.5.1
+      - torchvision==0.20.1
+      - pytorch-lightning==2.5.0.post0
+      - tensorflow==2.21.0
+      - tfkbnufft==0.2.5
+      - fastmri==0.3.0
+      - einops==0.8.0
+      - timm==1.0.12
+      - scikit-image
+      - pillow
+      - tqdm
+      - pytest==8.3.5
