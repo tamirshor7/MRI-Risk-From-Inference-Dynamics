@@ -2,15 +2,15 @@
 
 **Tamir Shor, Alex Bronstein**
 
-This repository contains the official implementation of our **WACV 2027** paper, [MRI Reconstruction Risk Estimation from Inference Dynamics](https://arxiv.org/abs/2610.26558).
+This repository contains the official implementation of the **WACV 2027** paper [MRI Reconstruction Risk Estimation from Inference Dynamics](https://arxiv.org/abs/2610.26558).
 
 Iterative MRI reconstruction models produce a sequence of intermediate estimates before returning the final image. We use this sequence to estimate reconstruction error, without requiring a reference image at inference time. The method extracts 16 trajectory features and learns a ridge regression predictor on source-domain data, while keeping the reconstruction model frozen.
 
-The implementation supports XPDNet, VarNet, and PromptMR+.
+Our implementation supports XPDNet, VarNet, and PromptMR+ as reconstruction backbones.
 
 ## Installation
 
-Create the environment and run all commands below from the repository root:
+Create the environment, run all commands below from the repository root:
 
     conda env create -f environment.yml
     conda activate mri-inference-risk
@@ -18,16 +18,15 @@ Create the environment and run all commands below from the repository root:
 
 ## Data
 
-The experiments use [fastMRI brain](https://fastmri.med.nyu.edu/) as the source dataset and [M4Raw](https://github.com/mylyu/M4Raw) for cross-domain evaluation.
+Our experiments use [fastMRI brain](https://fastmri.med.nyu.edu/) as the source dataset and [M4Raw](https://github.com/mylyu/M4Raw) for cross-domain evaluation.
 
-Download the multi-coil MRI data and the pretrained reconstruction weights separately. The extraction scripts take dataset directories, model checkpoints, sampling masks, and measurement manifests as arguments.
+The extraction scripts take dataset directories, model checkpoints, sampling masks, and measurement manifests as arguments.
 
-For XPDNet and PromptMR+, download the corresponding upstream implementations:
+For XPDNet and PromptMR+:
 
 - [XPDNet / fastMRI Reproducible Benchmark](https://github.com/zaccharieramzi/fastmri-reproducible-benchmark)
 - [PromptMR+](https://github.com/hellopipu/PromptMR-plus)
 
-No datasets or pretrained weights are included in this repository.
 
 ## Running the experiments
 
@@ -35,7 +34,7 @@ The reconstruction scripts extract intermediate model states and compute traject
 
 ### Reconstruction trajectories
 
-For VarNet:
+VarNet:
 
     python scripts/extract_cohort.py \
         --backbone varnet \
@@ -71,15 +70,12 @@ After extracting the source and target features, fit the source-trained readout:
         --target-csv results/varnet/m4/features.csv \
         --output-dir results/varnet/readout
 
-For the individual script options, use `--help`.
 
 ## Citation
 
-    @misc{shor2026mririsk,
-      title={MRI Reconstruction Risk Estimation from Inference Dynamics},
-      author={Tamir Shor and Alex Bronstein},
-      year={2026},
-      eprint={2610.26558},
-      archivePrefix={arXiv},
-      url={https://arxiv.org/abs/2610.26558}
-    }
+@article{shor2026mri,
+  title={MRI Reconstruction Risk Estimation from Inference Dynamics},
+  author={Shor, Tamir and Bronstein, Alex},
+  journal={arXiv preprint arXiv:2610.26558},
+  year={2026}
+}
